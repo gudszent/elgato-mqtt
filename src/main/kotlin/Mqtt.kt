@@ -30,6 +30,8 @@ import java.util.UUID
 class Mqtt(host: String, port: Int, user:String, pass:String) {
   private val url: String = "tcp://$host:$port"
   private val client: IMqttClient
+  private val user: String = "$user"
+  private val pass: String = "$pass"
 
   init {
     this.client = MqttClient(this.url, "mqtt-elgato_${UUID.randomUUID()}", MemoryPersistence())
@@ -41,8 +43,8 @@ class Mqtt(host: String, port: Int, user:String, pass:String) {
     options.isAutomaticReconnect = true
     options.isCleanSession = true
     options.connectionTimeout = 10
-    options.setUserName=$user
-    options.setPassword=$pass
+    options.setUserName = this.user
+    options.setPassword = this.pass
     client.connect(options)
     println("MQTT connection success")
   }
