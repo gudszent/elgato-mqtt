@@ -49,7 +49,7 @@ fun main(args: Array<String>) {
 
   // Initialize the light controller and MQTT client.
   val light = Elgato(lightHost.host, lightHost.port)
-  val mqtt = Mqtt(mqttHost.host, mqttHost.port)
+  val mqtt = Mqtt(mqttHost.host, mqttHost.port, args[3], args[4])
   mqtt.connect()
 
   // Subscribe to these topics and apply received changes to light itself.
