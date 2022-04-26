@@ -1,5 +1,5 @@
 /*
- *      Copyright (C) 2021  Sascha Häberling
+ *      Copyright (C) 2021  Sascha HÃ¤berling
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ import java.util.UUID
  * @param host hostname or IP address of the MQTT broker.
  * @param port port of the MQTT broker (1883 by default).
  */
-class Mqtt(host: String, port: Int) {
+class Mqtt(host: String, port: Int, user:String, pass:String) {
   private val url: String = "tcp://$host:$port"
   private val client: IMqttClient
 
@@ -41,6 +41,8 @@ class Mqtt(host: String, port: Int) {
     options.isAutomaticReconnect = true
     options.isCleanSession = true
     options.connectionTimeout = 10
+    options.setUserName($user);
+    options.setPassword($pass.toCharArray());
     client.connect(options)
     println("MQTT connection success")
   }
