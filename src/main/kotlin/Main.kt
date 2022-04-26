@@ -1,5 +1,5 @@
 /*
- *      Copyright (C) 2021  Sascha Häberling
+ *      Copyright (C) 2021  Sascha HÃ¤berling
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@
  */
 fun main(args: Array<String>) {
   if (args.size != 3) {
-    throw Exception("Missing parameters: <light ip:port> <mqtt ip:port> <topic-prefix>")
+    throw Exception("Missing parameters: <light ip:port> <mqtt ip:port> <topic-prefix> <user username> <pass password>")
   }
 
   // Parse and display the parameters.
