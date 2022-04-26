@@ -41,8 +41,8 @@ class Mqtt(host: String, port: Int, user:String, pass:String) {
     options.isAutomaticReconnect = true
     options.isCleanSession = true
     options.connectionTimeout = 10
-    options.setUserName($user)
-    options.setPassword($pass)
+    options.setUserName=$user
+    options.setPassword=$pass
     client.connect(options)
     println("MQTT connection success")
   }
